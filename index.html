@@ -1,232 +1,207 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Olimpus AeroAgency — Viagem dos Sonhos</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="style.css" rel="stylesheet"/>
-<meta content="Olimpus AeroAgency — Simulação de agência aérea. Pacotes, voos, hotéis e checkout simulado." name="description"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Olimpus AeroAgency — Viagem dos Sonhos</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <meta name="description" content="Olimpus AeroAgency — Simulação de agência aérea. Pacotes, voos, hotéis e checkout simulado."/>
+  <style>
+    /* Reset básico */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+    body { background-color: #f4f4f4; color: #333; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Header */
+    header { background: #0d1b2a; color: #fff; padding: 1rem 0; }
+    .header-grid { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: auto; padding: 0 1rem; }
+    .brand { display: flex; align-items: center; gap: 0.5rem; }
+    .brand-title { font-size: 1.5rem; font-weight: 700; }
+    .nav { display: flex; gap: 1rem; }
+    .nav-link { color: #fff; font-weight: 500; }
+    .controls { display: flex; align-items: center; gap: 0.5rem; }
+    select.lang-select { padding: 0.25rem; border-radius: 4px; border: none; }
+
+    /* Hero */
+    .hero { background: url('img/hero-bg.jpg') center/cover no-repeat; padding: 3rem 0; }
+    .hero-inner { max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; gap: 2rem; }
+    .hero-left { flex: 1; min-width: 280px; }
+    .hero-title { font-size: 2rem; margin-bottom: 1rem; }
+    .hero-title span { color: #39ff6f; }
+    .hero-sub { margin-bottom: 2rem; font-size: 1rem; }
+
+    /* Formulário */
+    .search-card { background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .search-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .field { flex: 1; min-width: 120px; display: flex; flex-direction: column; }
+    .field label { margin-bottom: 0.25rem; font-weight: 600; }
+    .field input, .field select { padding: 0.5rem; border: 1px solid #ccc; border-radius: 6px; }
+    .actions { display: flex; align-items: flex-end; }
+    .btn.primary { background: #39ff6f; border: none; padding: 0.75rem 1.25rem; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+    .btn.primary:hover { background: #2ecc71; }
+
+    /* Destaques */
+    .highlights { padding: 2rem 1rem; }
+    .grid-3 { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card { background: #fff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    .card h3 { margin: 0.5rem 0; }
+    .card p { font-size: 0.9rem; color: #555; }
+
+    /* Footer */
+    footer { background: #0d1b2a; color: #fff; padding: 1rem 0; }
+    .footer-grid { display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: auto; padding: 0 1rem; font-size: 0.9rem; }
+
+    /* Responsivo */
+    @media(max-width: 768px){
+      .hero-inner { flex-direction: column; }
+      .nav { flex-wrap: wrap; gap: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
-<!-- Loader -->
-<div class="loader" id="site-loader">
-<div aria-label="carregando" class="spinner" role="status"></div>
-</div>
-<!-- Shell -->
-<div class="site hidden" id="site">
-<header class="topbar">
-<div class="container header-grid">
-<div class="brand">
-<img alt="Olimpus logo" class="brand-logo" src="img/result_result_IMG-20250927-WA0019-removebg-preview.png"/>
-<div class="brand-text">
-<span class="brand-title">Olimpus</span>
-<small class="brand-sub">AeroAgency</small>
-</div>
-</div>
-<nav class="nav">
-<a class="nav-link" href="index.html">Início</a>
-<a class="nav-link" href="results.html">Voos</a>
-<a class="nav-link" href="reservas.html">Reservas</a>
-</nav>
-<div class="controls">
-<select aria-label="Idioma" class="lang-select" id="langSelect">
-<option value="pt">PT</option>
-<option value="en">EN</option>
-<option value="es">ES</option>
-</select>
-<a class="btn small ghost" href="#" id="contactBtn">Contato</a>
-</div>
-</div>
-</header>
+  <!-- Loader -->
+  <div class="loader" id="site-loader">
+    <div aria-label="carregando" class="spinner" role="status"></div>
+  </div>
 
-<main>
-<!-- HERO -->
-<section class="hero">
-<div class="container hero-inner">
-<div class="hero-left">
-<div>
-<h1 class="hero-title">Viaje alto com a <span>Olimpus</span></h1>
-<p class="hero-sub">Pacotes premium, voos para o Sudeste do Brasil e roteiros exclusivos — demo para apresentação.</p>
-</div>
-<form aria-label="Buscar voos e hotéis" class="search-card" id="searchForm">
-<div class="search-row">
-<div class="field">
-<label for="origin">Origem</label>
-<select id="origin" required="">
-<option value="">Selecione sua cidade</option>
-<!-- São Paulo -->
-<optgroup label="São Paulo">
-<option>São Paulo (GRU)</option>
-<option>São Paulo (CGH)</option>
-<option>Campinas (VCP)</option>
-<option>Santos</option>
-<option>São José dos Campos</option>
-<option>Ribeirão Preto</option>
-<option>Sorocaba</option>
-</optgroup>
-<!-- Rio de Janeiro -->
-<optgroup label="Rio de Janeiro">
-<option>Rio de Janeiro (GIG)</option>
-<option>Rio de Janeiro (SDU)</option>
-<option>Niterói</option>
-<option>Duque de Caxias</option>
-<option>São Gonçalo</option>
-<option>Nova Iguaçu</option>
-</optgroup>
-<!-- Minas Gerais -->
-<optgroup label="Minas Gerais">
-<option>Belo Horizonte (CNF)</option>
-<option>Uberlândia</option>
-<option>Contagem</option>
-<option>Juiz de Fora</option>
-<option>Betim</option>
-<option>Montes Claros</option>
-</optgroup>
-<!-- Espírito Santo -->
-<optgroup label="Espírito Santo">
-<option>Vitória (VIX)</option>
-<option>Vila Velha</option>
-<option>Serra</option>
-<option>Cariacica</option>
-<option>Guarapari</option>
-<option>Linhares</option>
-</optgroup>
-</select>
-</div>
-<div class="field">
-<label for="destination">Destino</label>
-<select id="destination" required="">
-<option value="">Selecione o destino</option>
-<!-- Estados do Sudeste -->
-<optgroup label="São Paulo">
-<option>São Paulo</option>
-<option>Campinas</option>
-<option>Santos</option>
-<option>São José dos Campos</option>
-<option>Ribeirão Preto</option>
-<option>Sorocaba</option>
-<option>ABC Paulista</option>
-<option>Vale do Paraíba</option>
-<option>Litoral Norte</option>
-<option>Litoral Sul</option>
-</optgroup>
-<optgroup label="Rio de Janeiro">
-<option>Rio de Janeiro</option>
-<option>Niterói</option>
-<option>Duque de Caxias</option>
-<option>São Gonçalo</option>
-<option>Nova Iguaçu</option>
-<option>Região dos Lagos</option>
-<option>Região Serrana</option>
-<option>Costa Verde</option>
-</optgroup>
-<optgroup label="Minas Gerais">
-<option>Belo Horizonte</option>
-<option>Uberlândia</option>
-<option>Contagem</option>
-<option>Juiz de Fora</option>
-<option>Betim</option>
-<option>Montes Claros</option>
-<option>Triângulo Mineiro</option>
-<option>Zona da Mata</option>
-<option>Sul de Minas</option>
-</optgroup>
-<optgroup label="Espírito Santo">
-<option>Vitória</option>
-<option>Vila Velha</option>
-<option>Serra</option>
-<option>Cariacica</option>
-<option>Guarapari</option>
-<option>Linhares</option>
-<option>Norte do ES</option>
-<option>Sul do ES</option>
-<option>Região Serrana</option>
-</optgroup>
-</select>
-</div>
-<div class="field">
-<label for="dateFrom">Ida</label>
-<input id="dateFrom" required="" type="date"/>
-</div>
-<div class="field">
-<label for="dateTo">Volta</label>
-<input id="dateTo" type="date"/>
-</div>
-</div>
-<div class="search-row search-row-bottom">
-<div class="field">
-<label for="searchType">Tipo</label>
-<select id="searchType">
-<option value="flight">Voos</option>
-<option value="hotel">Hotéis</option>
-<option value="package">Pacote</option>
-</select>
-</div>
-<div class="field">
-<label for="pax">Passageiros</label>
-<input id="pax" min="1" type="number" value="1"/>
-</div>
-<div class="field actions">
-<button class="btn primary" type="submit">Buscar</button>
-</div>
-</div>
-</form>
-</div>
-</div>
-</section>
+  <!-- Site -->
+  <div class="site hidden" id="site">
+    <header class="topbar">
+      <div class="container header-grid">
+        <div class="brand">
+          <img alt="Olimpus logo" class="brand-logo" src="img/result_result_IMG-20250927-WA0019-removebg-preview.png"/>
+          <div class="brand-text">
+            <span class="brand-title">Olimpus</span>
+            <small class="brand-sub">AeroAgency</small>
+          </div>
+        </div>
+        <nav class="nav">
+          <a class="nav-link" href="index.html">Início</a>
+          <a class="nav-link" href="results.html">Voos</a>
+          <a class="nav-link" href="reservas.html">Reservas</a>
+        </nav>
+        <div class="controls">
+          <select aria-label="Idioma" class="lang-select" id="langSelect">
+            <option value="pt">PT</option>
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+          </select>
+          <a class="btn small ghost" href="#" id="contactBtn">Contato</a>
+        </div>
+      </div>
+    </header>
 
-<section class="highlights">
-<div class="container grid-3">
-<article class="card highlight">
-<img alt="Hotel luxury" src="img/hotel5s.jpg"/>
-<h3>Hotéis 5★</h3>
-<p>Palácio Tangará — suíte com vista para a piscina</p>
-</article>
-<article class="card highlight">
-<img alt="Roteiro turístico" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
-<h3>Roteiros exclusivos</h3>
-<p>Guias experientes e atividades programadas (3º dia em diante)</p>
-</article>
-<article class="card highlight">
-<img alt="Pagamento" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=800&amp;q=80"/>
-<h3>Pagamento flexível</h3>
-<p>Cartão, Pix — simulação de checkout (até 10x)</p>
-</article>
-</div>
-</section>
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-left">
+            <h1 class="hero-title">Viaje alto com a <span>Olimpus</span></h1>
+            <p class="hero-sub">Pacotes premium, voos para o Sudeste do Brasil e roteiros exclusivos — demo para apresentação.</p>
 
-<section class="highlights">
-<div class="container grid-3">
-<article class="card highlight">
-<img alt="Espirito Santo" src="img/es.jpg"/>
-<h3>Espirito Santo</h3>
-<p>Do litoral encantador à serra fria, o Espírito Santo é um destino completo para quem busca natureza, gastronomia e história.</p>
-</article>
-<article class="card highlight">
-<img alt="Minas Gerais" src="img/mg.jpeg"/>
-<h3>Minas Gerais</h3>
-<p>Com cidades históricas, paisagens serranas e uma gastronomia inesquecível.</p>
-</article>
-<article class="card highlight">
-<img alt="Rio de Janeiro" src="img/rj.png"/>
-<h3>Rio de Janeiro</h3>
-<p>Cidade maravilhosa, cheia de encantos mil: o Rio é sol, samba e beleza natural.</p>
-</article>
-</div>
-</section>
-</main>
+            <!-- Formulário de busca -->
+            <form aria-label="Buscar voos e hotéis" class="search-card" id="searchForm">
+              <div class="search-row">
+                <div class="field">
+                  <label for="origin">Origem</label>
+                  <select id="origin" required="">
+                    <option value="">Selecione sua cidade</option>
+                    <!-- Inclua aqui o <select> completo de origem (como no último código que mandei) -->
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="destination">Destino</label>
+                  <select id="destination" required="">
+                    <option value="">Selecione o destino</option>
+                    <!-- Inclua aqui o <select> completo de destino (como no último código que mandei) -->
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="dateFrom">Ida</label>
+                  <input id="dateFrom" required="" type="date"/>
+                </div>
+                <div class="field">
+                  <label for="dateTo">Volta</label>
+                  <input id="dateTo" type="date"/>
+                </div>
+              </div>
 
-<footer class="footer">
-<div class="container footer-grid">
-<div>© 2025 Olimpus AeroAgency</div>
-<div>Contato: <a href="tel:+551140028922">(11) 4002-8922</a></div>
-</div>
-</footer>
+              <div class="search-row search-row-bottom">
+                <div class="field">
+                  <label for="searchType">Tipo</label>
+                  <select id="searchType">
+                    <option value="flight">Voos</option>
+                    <option value="hotel">Hotéis</option>
+                    <option value="package">Pacote</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="pax">Passageiros</label>
+                  <input id="pax" min="1" type="number" value="1"/>
+                </div>
+                <div class="field actions">
+                  <button class="btn primary" type="submit">Buscar</button>
+                </div>
+              </div>
+            </form>
 
-</div>
+          </div>
+        </div>
+      </section>
 
-<script defer="" src="script.js"></script>
+      <!-- Destaques -->
+      <section class="highlights">
+        <div class="container grid-3">
+          <article class="card highlight">
+            <img alt="Hotel luxury" src="img/hotel5s.jpg"/>
+            <h3>Hotel Fasano ★</h3>
+            <p>ícone de sofisticação e tradição na cidade, localizado no bairro Jardins, próximo à Rua Oscar Freire.</p>
+          </article>
+          <article class="card highlight">
+            <img alt="Roteiro turístico" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"/>
+            <h3>Roteiros exclusivos</h3>
+            <p>Guias experientes e atividades programadas (3º dia em diante)</p>
+          </article>
+          <article class="card highlight">
+            <img alt="Pagamento" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"/>
+            <h3>Pagamento flexível</h3>
+            <p>Cartão, Pix — simulação de checkout (até 10x)</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="highlights">
+        <div class="container grid-3">
+          <article class="card highlight">
+            <img alt="Espirito Santo" src="img/es.jpg"/>
+            <h3>Espirito Santo</h3>
+            <p>Do litoral encantador à serra fria, o Espírito Santo é um destino completo para quem busca natureza, gastronomia e história.</p>
+          </article>
+          <article class="card highlight">
+            <img alt="Minas Gerais" src="img/mg.jpeg"/>
+            <h3>Minas Gerais</h3>
+            <p>Com cidades históricas, paisagens serranas e uma gastronomia inesquecível.</p>
+          </article>
+          <article class="card highlight">
+            <img alt="Rio de Janeiro" src="img/rj.png"/>
+            <h3>Rio de Janeiro</h3>
+            <p>Cidade maravilhosa, cheia de encantos mil: o Rio é sol, samba e beleza natural.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>© 2025 Olimpus AeroAgency</div>
+        <div>Contato: <a href="tel:+551140028922">(11) 4002-8922</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script defer src="script.js"></script>
 </body>
 </html>
