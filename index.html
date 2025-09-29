@@ -2,18 +2,17 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Olimpus AeroAgency — Viagem dos Sonhos</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 <meta name="description" content="Olimpus AeroAgency — Simulação de agência aérea. Pacotes, voos, hotéis e checkout simulado."/>
 </head>
 <body>
-
 <!-- Loader -->
 <div class="loader" id="site-loader">
-  <div aria-label="carregando" class="spinner" role="status"></div>
+  <div class="spinner" role="status" aria-label="carregando"></div>
 </div>
 
 <!-- Shell -->
@@ -21,24 +20,24 @@
   <header class="topbar">
     <div class="container header-grid">
       <div class="brand">
-        <img alt="Olimpus logo" class="brand-logo" src="img/result_result_IMG-20250927-WA0019-removebg-preview.png"/>
+        <img src="img/result_result_IMG-20250927-WA0019-removebg-preview.png" alt="Olimpus logo" class="brand-logo"/>
         <div class="brand-text">
           <span class="brand-title">Olimpus</span>
           <small class="brand-sub">AeroAgency</small>
         </div>
       </div>
       <nav class="nav">
-        <a class="nav-link" href="index.html">Início</a>
-        <a class="nav-link" href="results.html">Voos</a>
-        <a class="nav-link" href="reservas.html">Reservas</a>
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="results.html" class="nav-link">Voos</a>
+        <a href="reservas.html" class="nav-link">Reservas</a>
       </nav>
       <div class="controls">
-        <select aria-label="Idioma" class="lang-select" id="langSelect">
+        <select id="langSelect" class="lang-select" aria-label="Idioma">
           <option value="pt">PT</option>
           <option value="en">EN</option>
           <option value="es">ES</option>
         </select>
-        <a class="btn small ghost" href="#" id="contactBtn">Contato</a>
+        <a href="#" class="btn small ghost" id="contactBtn">Contato</a>
       </div>
     </div>
   </header>
@@ -48,8 +47,10 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-left">
-          <h1 class="hero-title">Viaje alto com a <span>Olimpus</span></h1>
-          <p class="hero-sub">Pacotes premium, voos para o Brasil e roteiros exclusivos — demo para apresentação.</p>
+          <div>
+            <h1 class="hero-title">Viaje alto com a <span>Olimpus</span></h1>
+            <p class="hero-sub">Pacotes premium, voos para o Sudeste do Brasil e roteiros exclusivos — demo para apresentação.</p>
+          </div>
 
           <!-- Formulário de busca -->
           <form aria-label="Buscar voos e hotéis" class="search-card" id="searchForm">
@@ -59,28 +60,27 @@
                 <label for="origin">Origem</label>
                 <select id="origin" required>
                   <option value="">Selecione sua cidade</option>
-
                   <!-- Região Sudeste -->
                   <optgroup label="Sudeste">
                     <option>São Paulo - GRU</option>
                     <option>São Paulo - CGH</option>
                     <option>Campinas - VCP</option>
-                    <option>Santos - SP</option>
-                    <option>São José dos Campos - SP</option>
-                    <option>Ribeirão Preto - SP</option>
-                    <option>Sorocaba - SP</option>
+                    <option>Santos</option>
+                    <option>São José dos Campos</option>
+                    <option>Ribeirão Preto</option>
+                    <option>Sorocaba</option>
                     <option>Rio de Janeiro - GIG</option>
                     <option>Rio de Janeiro - SDU</option>
-                    <option>Niterói - RJ</option>
-                    <option>Duque de Caxias - RJ</option>
+                    <option>Niterói</option>
+                    <option>Duque de Caxias</option>
                     <option>Belo Horizonte - CNF</option>
-                    <option>Uberlândia - MG</option>
-                    <option>Contagem - MG</option>
-                    <option>Juiz de Fora - MG</option>
+                    <option>Uberlândia</option>
+                    <option>Contagem</option>
+                    <option>Juiz de Fora</option>
                     <option>Vitória - VIX</option>
-                    <option>Vila Velha - ES</option>
-                    <option>Serra - ES</option>
-                    <option>Guarapari - ES</option>
+                    <option>Vila Velha</option>
+                    <option>Serra</option>
+                    <option>Guarapari</option>
                   </optgroup>
 
                   <!-- Região Sul -->
@@ -103,23 +103,13 @@
                   <!-- Região Nordeste -->
                   <optgroup label="Nordeste">
                     <option>Salvador - SSA</option>
-                    <option>Feira de Santana - BA</option>
-                    <option>Vitória da Conquista - BA</option>
                     <option>Fortaleza - FOR</option>
-                    <option>Caucaia - CE</option>
-                    <option>Juazeiro do Norte - CE</option>
                     <option>Recife - REC</option>
-                    <option>Jaboatão dos Guararapes - PE</option>
-                    <option>Caruaru - PE</option>
                     <option>Natal - NAT</option>
-                    <option>Mossoró - RN</option>
                     <option>Maceió - MCZ</option>
-                    <option>Arapiraca - AL</option>
                     <option>João Pessoa - JPA</option>
-                    <option>Campina Grande - PB</option>
                     <option>São Luís - SLZ</option>
                     <option>Aracaju - AJU</option>
-                    <option>Nossa Senhora do Socorro - SE</option>
                     <option>Teresina - THE</option>
                   </optgroup>
 
@@ -127,67 +117,51 @@
                   <optgroup label="Centro-Oeste">
                     <option>Brasília - BSB</option>
                     <option>Goiânia - GYN</option>
-                    <option>Aparecida de Goiânia - GO</option>
-                    <option>Anápolis - GO</option>
                     <option>Campo Grande - CGR</option>
-                    <option>Dourados - MS</option>
                     <option>Cuiabá - CGB</option>
-                    <option>Várzea Grande - MT</option>
-                    <option>Rondonópolis - MT</option>
                   </optgroup>
 
                   <!-- Região Norte -->
                   <optgroup label="Norte">
                     <option>Manaus - MAO</option>
-                    <option>Parintins - AM</option>
                     <option>Belém - BEL</option>
-                    <option>Ananindeua - PA</option>
-                    <option>Santarém - PA</option>
                     <option>Porto Velho - PVH</option>
-                    <option>Ji-Paraná - RO</option>
                     <option>Rio Branco - RBR</option>
-                    <option>Macapá - MCP</option>
-                    <option>Boa Vista - BVB</option>
                     <option>Palmas - PMW</option>
-                    <option>Araguaína - TO</option>
                   </optgroup>
                 </select>
               </div>
 
-              <!-- Destino -->
+              <!-- Destino (Sudeste) -->
               <div class="field">
                 <label for="destination">Destino</label>
                 <select id="destination" required>
                   <option value="">Selecione o destino</option>
-
-                  <!-- Sudeste -->
                   <optgroup label="São Paulo">
                     <option>São Paulo - Centro</option>
                     <option>São Paulo - Zona Sul</option>
                     <option>São Paulo - Zona Leste</option>
                     <option>São Paulo - Zona Oeste</option>
-                    <option>São Paulo - Zona Norte</option>
-                    <option>Campinas - SP</option>
-                    <option>Santos - SP</option>
-                    <option>São José dos Campos - SP</option>
-                    <option>Ribeirão Preto - SP</option>
-                    <option>Sorocaba - SP</option>
+                    <option>Campinas</option>
+                    <option>Santos</option>
+                    <option>São José dos Campos</option>
+                    <option>Ribeirão Preto</option>
+                    <option>Sorocaba</option>
                     <option>ABC Paulista</option>
                     <option>Vale do Paraíba</option>
                     <option>Litoral Norte</option>
                     <option>Litoral Sul</option>
-                    <option>Interior - SP</option>
                   </optgroup>
 
                   <optgroup label="Rio de Janeiro">
+                    <option>Rio de Janeiro - Centro</option>
                     <option>Rio de Janeiro - Zona Sul</option>
                     <option>Rio de Janeiro - Zona Norte</option>
                     <option>Rio de Janeiro - Zona Oeste</option>
-                    <option>Rio de Janeiro - Centro</option>
-                    <option>Niterói - RJ</option>
-                    <option>Duque de Caxias - RJ</option>
-                    <option>São Gonçalo - RJ</option>
-                    <option>Nova Iguaçu - RJ</option>
+                    <option>Niterói</option>
+                    <option>Duque de Caxias</option>
+                    <option>São Gonçalo</option>
+                    <option>Nova Iguaçu</option>
                     <option>Região dos Lagos</option>
                     <option>Região Serrana</option>
                     <option>Costa Verde</option>
@@ -195,37 +169,25 @@
                   </optgroup>
 
                   <optgroup label="Minas Gerais">
-                    <option>Belo Horizonte - MG</option>
-                    <option>Uberlândia - MG</option>
-                    <option>Contagem - MG</option>
-                    <option>Juiz de Fora - MG</option>
-                    <option>Betim - MG</option>
-                    <option>Montes Claros - MG</option>
-                    <option>Uberaba - MG</option>
-                    <option>Governador Valadares - MG</option>
-                    <option>Divinópolis - MG</option>
+                    <option>Belo Horizonte</option>
+                    <option>Uberlândia</option>
+                    <option>Contagem</option>
+                    <option>Juiz de Fora</option>
+                    <option>Betim</option>
+                    <option>Montes Claros</option>
                     <option>Triângulo Mineiro</option>
                     <option>Zona da Mata</option>
                     <option>Sul de Minas</option>
-                    <option>Vale do Aço</option>
                   </optgroup>
 
                   <optgroup label="Espírito Santo">
-                    <option>Vitória - ES</option>
-                    <option>Vila Velha - ES</option>
-                    <option>Serra - ES</option>
-                    <option>Cariacica - ES</option>
-                    <option>Guarapari - ES</option>
-                    <option>Linhares - ES</option>
-                    <option>Colatina - ES</option>
-                    <option>Aracruz - ES</option>
-                    <option>Cachoeiro de Itapemirim - ES</option>
-                    <option>São Mateus - ES</option>
-                    <option>Norte do ES</option>
-                    <option>Sul do ES</option>
-                    <option>Região Serrana - ES</option>
+                    <option>Vitória</option>
+                    <option>Vila Velha</option>
+                    <option>Serra</option>
+                    <option>Cariacica</option>
+                    <option>Guarapari</option>
+                    <option>Linhares</option>
                   </optgroup>
-
                 </select>
               </div>
 
@@ -234,14 +196,12 @@
                 <label for="dateFrom">Ida</label>
                 <input id="dateFrom" required type="date"/>
               </div>
-
               <div class="field">
                 <label for="dateTo">Volta</label>
                 <input id="dateTo" type="date"/>
               </div>
             </div>
 
-            <!-- Tipo e passageiros -->
             <div class="search-row search-row-bottom">
               <div class="field">
                 <label for="searchType">Tipo</label>
@@ -268,17 +228,17 @@
     <section class="highlights">
       <div class="container grid-3">
         <article class="card highlight">
-          <img alt="Hotel luxury" src="img/hotel5s.jpg"/>
+          <img src="img/hotel5s.jpg" alt="Hotel luxury"/>
           <h3>Hotéis 5★</h3>
           <p>Palácio Tangará — suíte com vista para a piscina</p>
         </article>
         <article class="card highlight">
-          <img alt="Roteiro turístico" src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80"/>
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80" alt="Roteiro turístico"/>
           <h3>Roteiros exclusivos</h3>
           <p>Guias experientes e atividades programadas (3º dia em diante)</p>
         </article>
         <article class="card highlight">
-          <img alt="Pagamento" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80"/>
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Pagamento"/>
           <h3>Pagamento flexível</h3>
           <p>Cartão, Pix — simulação de checkout (até 10x)</p>
         </article>
@@ -288,17 +248,17 @@
     <section class="highlights">
       <div class="container grid-3">
         <article class="card highlight">
-          <img alt="Espirito Santo" src="img/es.jpg"/>
+          <img src="img/es.jpg" alt="Espirito Santo"/>
           <h3>Espirito Santo</h3>
           <p>Do litoral encantador à serra fria, o Espírito Santo é um destino completo para quem busca natureza, gastronomia e história.</p>
         </article>
         <article class="card highlight">
-          <img alt="Minas Gerais" src="img/mg.jpeg"/>
+          <img src="img/mg.jpeg" alt="Minas Gerais"/>
           <h3>Minas Gerais</h3>
           <p>Com cidades históricas, paisagens serranas e uma gastronomia inesquecível.</p>
         </article>
         <article class="card highlight">
-          <img alt="Rio de Janeiro" src="img/rj.png"/>
+          <img src="img/rj.png" alt="Rio de Janeiro"/>
           <h3>Rio de Janeiro</h3>
           <p>Cidade maravilhosa, cheia de encantos mil: o Rio é sol, samba e beleza natural.</p>
         </article>
