@@ -356,15 +356,15 @@ function renderResultsFromSearch(){
   const t = I18N[getLang()];
   
   if(!search.type || search.type==='flight'){
-    const carriers = ['Olimpus Air','AeroOlympus','Decolar Airlines'];
+    const carriers = ['OlympusAero'];
     for(let i=0; i<8; i++){
       const price = Math.round((200 + Math.random()*1500));
       items.push({
         id:'FL-'+Math.random().toString(36).slice(2,8).toUpperCase(),
-        title: `${search.origin || 'São Paulo'} → ${search.destination || 'Rio de Janeiro'}`,
+        title: `${search.origin || 'Fortaleza'} → ${search.destination || 'Rio de Janeiro'}`,
         airline: carriers[i % carriers.length],
         depart: search.dateFrom || '---',
-        duration: `${1+Math.floor(Math.random()*12)}h ${Math.floor(Math.random()*60)}m`,
+        duration: `${3+Math.floor(Math.random()*12)}h ${Math.floor(Math.random()*60)}m`,
         price,
         type: 'flight'
       });
@@ -375,8 +375,8 @@ function renderResultsFromSearch(){
     for(let i=0; i<6; i++){
       items.push({ 
         id:'HT-'+i, 
-        title:'Hotel Olimpus '+(i+1), 
-        price:100+Math.floor(Math.random()*900),
+        title:'Palácio Tangará '+(i+1), 
+        price:1000+Math.floor(Math.random()*6000),
         type: 'hotel'
       });
     }
