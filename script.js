@@ -358,7 +358,7 @@ function renderResultsFromSearch(){
   if(!search.type || search.type==='flight'){
     const carriers = ['OlympusAero'];
     for(let i=0; i<8; i++){
-      const price = Math.round((200 + Math.random()*1500));
+      const price = Math.round((700 + Math.random()*8000));
       items.push({
         id:'FL-'+Math.random().toString(36).slice(2,8).toUpperCase(),
         title: `${search.origin || 'Fortaleza'} → ${search.destination || 'Rio de Janeiro'}`,
