@@ -275,6 +275,39 @@ html, body {
   box-shadow: 0 0 0 3px rgba(27,59,255,0.1);
 }
 
+/* Ajuste específico para celulares */
+@media (max-width: 768px) {
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-container input,
+  .form-container select {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 10px;
+  }
+
+  .form-container h2 {
+    font-size: 1.2rem;
+  }
+}
+
+
 .actions {
   display: flex;
   gap: .75rem;
